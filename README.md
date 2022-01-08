@@ -1,0 +1,1 @@
+Hello there! Welcome to my page. This project is a web based calculator for the odin project. You can view it here: https://shadmik.github.io/Calculator
