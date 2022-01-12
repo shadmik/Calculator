@@ -83,5 +83,12 @@ hr{
     font-size: 2rem;
     position: absolute;
     top: 26vh;
-    left: 35vw;
+    left: 35.5vw;
+}
+#monitorText2{
+    font-family: audiowide;
+    font-size: 2rem;
+    position: absolute;
+    top: 20vh;
+    left: 35.5vw;
 }
