@@ -136,13 +136,16 @@ backspace.addEventListener('click', ()=>{
     if(monitorText2.textContent.length!=0){
         text=monitorText2.textContent;
         monitorText2.textContent='';
-    monitorText1.textContent=`${text}`;
+        monitorText1.textContent=`${text}`;
 
     }else{
-        if(text.length==1){
+        if(text=='Infinity'){
+            text='0';
+        }
+        else if(text.length==1){
         text='0';
         }else{
-        text=text.slice(0, -1);
+        text=`${text.slice(0, -1)}`;
     }
     monitorText2.textContent='';
     monitorText1.textContent=`${text}`;}
@@ -287,44 +290,39 @@ divide.addEventListener('click', ()=>{
         text='';
     }else if(monitorText2.textContent.length!=0){
         text=`${Number(monitorText2.textContent)/ Number(monitorText1.textContent)}`;
-        if(text.includes('.')){text=`${Number(text).toFixed(3)}`}
+        if(text.includes('.')){text=`${Number(text).toFixed(3)}`
+        }else if(text=NaN){text='infinity'}
         monitorText2.textContent=`${text}`;
         monitorText1.textContent='';
         text='';
        }
 
 })
+root.addEventListener('click', ()=>{
+        text=`${Math.sqrt(Number(monitorText1.textContent))}`;
+        if(text.includes('.')){text=`${Number(text).toFixed(3)}`}
+        monitorText1.textContent=`${text}`;
+})
 equal.addEventListener('click', ()=>{
     if(plusCount==1){
         text=`${Number(monitorText1.textContent)+Number(monitorText2.textContent)}`;
-        monitorText1.textContent=`${text}`;
-        monitorText2.textContent='';
         plusCount=0;
     }else if(minusCount==1){
         text=`${Number(monitorText2.textContent)-Number(monitorText1.textContent)}`;
-        monitorText1.textContent=`${text}`;
-        monitorText2.textContent='';
         minusCount=0;
     }else if(multiplyCount==1){
         text=`${Number(monitorText2.textContent)* Number(monitorText1.textContent)}`;
-        monitorText1.textContent=`${text}`;
-        monitorText2.textContent='';
         multiplyCount=0;
     }else if (divideCount==1){
         text=`${Number(monitorText2.textContent)/ Number(monitorText1.textContent)}`;
-        if(text.includes('.')){text=`${Number(text).toFixed(3)}`}
+        divideCount=0;}
+        if(text.includes('.')){text=`${Number(text).toFixed(2)}`
+        }
         monitorText1.textContent=`${text}`;
         monitorText2.textContent='';
-        divideCount=0;}
 })
-
-
-
-
-
 
 
 function removeZero(){
     if(text.length==1&& text[0]=='0'){text=''};
 }
-//square root
