@@ -247,7 +247,7 @@ multiply.addEventListener('click', ()=>{
         minusCount=0;
         text='';
     }else if(divideCount==1){
-        text=`${Number(monitorText1.textContent)/ Number(monitorText2.textContent)}`;
+        text=`${Number(monitorText2.textContent)/ Number(monitorText1.textContent)}`;
         if(text.includes('.')){text=`${Number(text).toFixed(3)}`}
         monitorText2.textContent=`${text}`;
         monitorText1.textContent='';
