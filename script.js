@@ -172,22 +172,17 @@ plus.addEventListener('click', ()=>{
     plusCount=1;
     if(minusCount==1){
         text=`${Number(monitorText2.textContent)-Number(monitorText1.textContent)}`;
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
+        monitorShow();
         minusCount=0;
     }
     else if(multiplyCount==1){
         text=`${Number(monitorText1.textContent)* Number(monitorText2.textContent)}`;
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
-        text='';
+        monitorShow();
         multiplyCount=0;
     }else if(divideCount==1){
         text=`${Number(monitorText1.textContent)/ Number(monitorText2.textContent)}`;
         if(text.includes('.')){text=`${Number(text).toFixed(3)}`}
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
-        text='';
+        monitorShow();
 
     }
    else if(monitorText2.textContent.length==0){
@@ -205,21 +200,16 @@ minus.addEventListener('click', ()=>{
     minusCount=1;
     if(plusCount==1){
         text=`${Number(monitorText1.textContent)+Number(monitorText2.textContent)}`;
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
+        monitorShow();
         plusCount=0
     }else if(multiplyCount==1){
         text=`${Number(monitorText1.textContent)* Number(monitorText2.textContent)}`;
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
-        text='';
+        monitorShow();
         multiplyCount=0;
     }else if(divideCount==1){
         text=`${Number(monitorText1.textContent)/ Number(monitorText2.textContent)}`;
         if(text.includes('.')){text=`${Number(text).toFixed(3)}`}
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
-        text='';
+        monitorShow();
         divideCount=0;}
    else if(monitorText2.textContent.length==0){
     monitorText2.textContent=monitorText1.textContent;
@@ -236,22 +226,17 @@ multiply.addEventListener('click', ()=>{
     multiplyCount=1;
     if(plusCount==1){
         text=`${Number(monitorText1.textContent)+Number(monitorText2.textContent)}`;
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
+        monitorShow();
         plusCount=0;
-        text='';
+    
     }else if(minusCount==1){
         text=`${Number(monitorText2.textContent)-Number(monitorText1.textContent)}`;
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
+        monitorShow();
         minusCount=0;
-        text='';
     }else if(divideCount==1){
         text=`${Number(monitorText2.textContent)/ Number(monitorText1.textContent)}`;
         if(text.includes('.')){text=`${Number(text).toFixed(3)}`}
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
-        text='';
+        monitorShow();
         divideCount=0;}
     else if(monitorText2.textContent.length==0){
         monitorText2.textContent=monitorText1.textContent;
@@ -259,19 +244,15 @@ multiply.addEventListener('click', ()=>{
         text='';
     }else if(monitorText2.textContent.length!=0){
         text=`${Number(monitorText2.textContent)*Number(monitorText1.textContent)}`;
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
-        text='';
+        monitorShow();
        }
 })
 divide.addEventListener('click', ()=>{
     divideCount=1;
     if(plusCount==1){
         text=`${Number(monitorText1.textContent)+Number(monitorText2.textContent)}`;
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
+        monitorShow();
         plusCount=0;
-        text='';
     }else if(minusCount==1){
         text=`${Number(monitorText2.textContent)-Number(monitorText1.textContent)}`;
         monitorText2.textContent=`${text}`;
@@ -280,9 +261,7 @@ divide.addEventListener('click', ()=>{
         text='';
     }else if(multiplyCount==1){
         text=`${Number(monitorText1.textContent)* Number(monitorText2.textContent)}`;
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
-        text='';
+        monitorShow();
         multiplyCount=0;
     }else if(monitorText2.textContent.length==0){
         monitorText2.textContent=monitorText1.textContent;
@@ -292,9 +271,7 @@ divide.addEventListener('click', ()=>{
         text=`${Number(monitorText2.textContent)/ Number(monitorText1.textContent)}`;
         if(text.includes('.')){text=`${Number(text).toFixed(3)}`
         }else if(text=NaN){text='infinity'}
-        monitorText2.textContent=`${text}`;
-        monitorText1.textContent='';
-        text='';
+        monitorShow();
        }
 
 })
@@ -325,4 +302,9 @@ equal.addEventListener('click', ()=>{
 
 function removeZero(){
     if(text.length==1&& text[0]=='0'){text=''};
+}
+function monitorShow(){
+    monitorText2.textContent=`${text}`;
+        monitorText1.textContent='';
+        text='';
 }
